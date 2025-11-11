@@ -1,0 +1,9 @@
+backend:
+  build: ./haircare-backend
+  container_name: haircare-management-backend
+  ports:
+    - "8080:8080"
+  env_file: ./haircare-backend/.env
+  depends_on:
+    - db
+  entrypoint: ["./wait-for-db.sh", "./main"]
